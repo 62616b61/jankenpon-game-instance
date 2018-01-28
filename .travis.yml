@@ -4,7 +4,7 @@ services:
 language: bash
 script:
 # enable qemu
-  docker run --rm --privileged multiarch/qemu-user-static:register
+-  docker run --rm --privileged multiarch/qemu-user-static:register
 # build images
 - docker build -f Dockerfile.arm -t kurai/jankenpon-game-instance-arm .
 - docker build -f Dockerfile.amd64 -t kurai/jankenpon-game-instance-amd64 .
