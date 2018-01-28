@@ -1,4 +1,4 @@
-FROM arm32v7/node:8
+FROM hypriot/rpi-node
 
 RUN mkdir -p /app
 WORKDIR /app
@@ -7,7 +7,5 @@ ADD package.json yarn.lock /app/
 RUN yarn --pure-lockfile
 
 COPY . /app
-
-EXPOSE 3000
 
 CMD ["yarn", "start"]
