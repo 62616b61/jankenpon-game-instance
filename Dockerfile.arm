@@ -1,4 +1,4 @@
-FROM hypriot/rpi-node
+FROM arm32v7/node:9.4.0-slim
 
 RUN mkdir -p /app
 WORKDIR /app
