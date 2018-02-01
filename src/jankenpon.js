@@ -46,6 +46,8 @@ class Jankenpon {
       this.winner = 1
       this.score[1]++
     }
+
+    console.log('playing', this.tie, this.winner, this.score)
   }
 
   status () {

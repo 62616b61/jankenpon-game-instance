@@ -7,13 +7,17 @@ const app = express()
 const jankenpon = new Jankenpon()
 
 app.get('/status', (req, res) => res.json(jankenpon.status()))
+
 app.get('/reset', (req, res) => {
   jankenpon.reset()
   res.sendStatus(200)
 })
+
 app.get('/choose/:player/:shape', (req, res) => {
   const player = req.params.player
   const shape = req.params.shape
+
+  console.log('choice:', player, shape)
 
   jankenpon.choose(player, shape)
   res.sendStatus(200)
