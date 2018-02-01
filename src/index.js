@@ -8,11 +8,6 @@ const jankenpon = new Jankenpon()
 
 app.get('/status', (req, res) => res.json(jankenpon.status()))
 
-app.get('/reset', (req, res) => {
-  jankenpon.reset()
-  res.sendStatus(200)
-})
-
 app.get('/choose/:player/:shape', (req, res) => {
   const player = req.params.player
   const shape = req.params.shape
@@ -21,6 +16,16 @@ app.get('/choose/:player/:shape', (req, res) => {
 
   jankenpon.choose(player, shape)
   res.sendStatus(200)
+})
+
+app.get('/reset', (req, res) => {
+  jankenpon.reset()
+  res.sendStatus(200)
+})
+
+app.get('/exit', (req, res) => {
+  res.sendStatus(200)
+  process.exit(0)
 })
 
 app.listen(constants.PORT, err => {
