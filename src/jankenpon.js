@@ -49,6 +49,8 @@ class Jankenpon {
 
     console.log('shape1', shape1)
     console.log('shape2', shape2)
+    console.log('cond1', shape1 === shape2)
+    console.log('cond2', this.rules[shape1] === shape2)
 
     console.log('playing', this.tie, this.winner, this.score)
   }
