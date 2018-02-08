@@ -27,8 +27,8 @@ class Jankenpon {
 
   play () {
     this.state = 'finished'
-    const shape1 = this.choice[0]
-    const shape2 = this.choice[1]
+    const shape1 = parseInt(this.choice[0])
+    const shape2 = parseInt(this.choice[1])
 
     // tie
     if (shape1 === shape2) {
