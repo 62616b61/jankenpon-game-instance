@@ -7,8 +7,8 @@ script:
 - docker run --rm --privileged multiarch/qemu-user-static:register --reset
 
 # build image
-- docker build -f Dockerfile.arm -t kurai/jankenpon-game-instance-arm:$COMMIT .
-- docker build -f Dockerfile.amd64 -t kurai/jankenpon-game-instance-amd64:$COMMIT .
+- docker build -f Dockerfile.arm -t kurai/jankenpon-game-instance-arm .
+- docker build -f Dockerfile.amd64 -t kurai/jankenpon-game-instance-amd64 .
 
 # push image
 - >
