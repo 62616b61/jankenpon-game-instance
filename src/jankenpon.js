@@ -1,8 +1,12 @@
+const IDLE = 'idle'
+const WAITING = 'waiting'
+const FINISHED = 'finished'
+
 class Jankenpon {
   constructor () {
     this.rules = [2, 0, 1]
 
-    this.state = 'idle'
+    this.state = IDLE
     this.score = [0, 0]
     this.choice = [null, null]
     this.tie = null
@@ -10,14 +14,17 @@ class Jankenpon {
   }
 
   reset () {
-    this.state = 'idle'
+    this.state = IDLE
     this.choice = [null, null]
     this.tie = null
     this.winner = null
   }
 
   choose (player, shape) {
-    this.state = 'waiting'
+    // If player has already made a choice, skip
+    if (this.choice[player]) return
+
+    this.state = WAITING
     this.choice[player] = shape
 
     if (this.choice[0] && this.choice[1]) {
@@ -26,7 +33,7 @@ class Jankenpon {
   }
 
   play () {
-    this.state = 'finished'
+    this.state = FINISHED
     const shape1 = parseInt(this.choice[0])
     const shape2 = parseInt(this.choice[1])
 
